@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/RecruitingCandidate" xmlns:tns="http://www.example.org/RecruitingCandidate" elementFormDefault="qualified">
+
+    <element name="CandidateID" type="string"></element>
+
+    <element name="CandidateName" type="string"></element>
+
+    <element name="Street" type="string"></element>
+
+
+
+
+
+    <element name="LaneNo" type="int"></element>
+
+    <element name="City" type="string"></element>
+
+    <element name="Pincode" type="int"></element>
+
+    <element name="Country" type="string"></element>
+
+    <element name="technology" type="string"></element>
+
+    <element name="Annual-Package" type="int"></element>
+
+
+    <complexType name="Candidate-AddressType">
+    	<sequence>
+    		<element ref="tns:Street"></element>
+    		<element ref="tns:LaneNo"></element>
+    		<element ref="tns:City"></element>
+    		<element ref="tns:Pincode"></element>
+    		<element ref="tns:Country"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="skillstype">
+    	<sequence>
+    		<element ref="tns:technology"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="Candidate-DetailsType">
+    	<sequence>
+    		<element ref="tns:CandidateID"></element>
+    		<element ref="tns:CandidateName"></element>
+    		<element ref="tns:Candidate-Address"></element>
+    		<element ref="tns:skill"></element>
+    		<element ref="tns:Annual-Package"></element>
+    	</sequence>
+    </complexType>
+    
+    <element name="Candidate-Details"
+    	type="tns:Candidate-DetailsType">
+    </element>
+    
+    <element name="Candidate-Address"
+    	type="tns:Candidate-AddressType">
+    </element>
+    
+    <element name="skill" type="tns:skillstype"></element>
+</schema>
