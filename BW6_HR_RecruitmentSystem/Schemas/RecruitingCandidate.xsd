@@ -36,7 +36,7 @@
     
     <complexType name="skillstype">
     	<sequence>
-    		<element ref="tns:technology"></element>
+    		<element ref="tns:technology" maxOccurs="unbounded" minOccurs="0"></element>
     	</sequence>
     </complexType>
     
@@ -45,7 +45,7 @@
     		<element ref="tns:CandidateID"></element>
     		<element ref="tns:CandidateName"></element>
     		<element ref="tns:Candidate-Address"></element>
-    		<element ref="tns:skill"></element>
+    		<element ref="tns:skill" maxOccurs="unbounded" minOccurs="0"></element>
     		<element ref="tns:Annual-Package"></element>
     	</sequence>
     </complexType>

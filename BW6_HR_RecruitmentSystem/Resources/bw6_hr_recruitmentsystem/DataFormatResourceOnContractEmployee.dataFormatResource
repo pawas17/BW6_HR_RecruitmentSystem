@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:OnContractEmployee="http://www.example.org/OnContractEmployee" xmlns:dataformat="http://ns.tibco.com/bw/palette/dataformat" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_E4zMQQ4SEfC8lNI84jFLbQ" name="bw6_hr_recruitmentsystem.DataFormatResourceOnContractEmployee" type="dataformat:DataFormat">
+  <imports xmi:id="_Hq3rQA4SEfC8lNI84jFLbQ" importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.org/OnContractEmployee"/>
+  <jndi:configuration xsi:type="dataformat:DataFormat" xmi:id="_E41BcA4SEfC8lNI84jFLbQ" formatType="Delimiter separated" colSeparator="," colSeparatorParseRule="Treat all characters as entered as a single column separator string" lineSeparator="New Line" fillCharacter="Space" schemaElementQName="OnContractEmployee:OnContractEmployee" fieldOffsetsStr="empid(0,0)&#xA;empname(0,0)&#xA;salary(0,0)">
+    <fieldOffsets xmi:id="_Hr17oA4SEfC8lNI84jFLbQ" name="empid"/>
+    <fieldOffsets xmi:id="_Hr17oQ4SEfC8lNI84jFLbQ" name="empname"/>
+    <fieldOffsets xmi:id="_Hr17og4SEfC8lNI84jFLbQ" name="salary"/>
+  </jndi:configuration>
+</jndi:namedResource>

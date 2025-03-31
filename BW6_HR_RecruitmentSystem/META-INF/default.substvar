@@ -73,5 +73,37 @@
 			<type>String</type>
 			<isOverride>false</isOverride>
 		</globalVariable>
+		<globalVariable>
+			<name>/BW6_HR_RecruitmentSystem/LogFilePath</name>
+			<value>D:\TIBCO\Output\BW6_HR_RecruitmentSystemLog.txt</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/BW6_HR_RecruitmentSystem/PayRollSystemFilePath</name>
+			<value>C:\data\</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/BW6_HR_RecruitmentSystem/OnRollEmployee_Type</name>
+			<value>OnRoll</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/BW6_HR_RecruitmentSystem/OnContractEmployee_Type</name>
+			<value>OnContract</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
 	</globalVariables>
 </repository>
