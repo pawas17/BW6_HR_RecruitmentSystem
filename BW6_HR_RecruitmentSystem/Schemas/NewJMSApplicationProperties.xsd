@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.tibco.bw.plugin.jms.properties99bdc94e-1a40-465e-8b63-de6e1137b7a4NewJMSApplicationProperties" xmlns:tns="http://com.tibco.bw.plugin.jms.properties99bdc94e-1a40-465e-8b63-de6e1137b7a4NewJMSApplicationProperties" elementFormDefault="qualified">
+<complexType name="jmsAppPropType">
+	<sequence>
+		<element ref="tns:CandidateType"></element>
+	</sequence></complexType>
+
+    <element name="CandidateType" type="string"></element>
+</schema>

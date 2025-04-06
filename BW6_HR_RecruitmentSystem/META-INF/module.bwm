@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_aD-lIAeyEfClwpgvqMEu3A" targetNamespace="http://tns.tibco.com/bw/composite/BW6_HR_RecruitmentSystem" name="BW6_HR_RecruitmentSystem" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_anilMAeyEfClwpgvqMEu3A" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_anqhAAeyEfClwpgvqMEu3A" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_anzD4AeyEfClwpgvqMEu3A" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_anzD4QeyEfClwpgvqMEu3A" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_an804AeyEfClwpgvqMEu3A" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_an804QeyEfClwpgvqMEu3A" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_an804geyEfClwpgvqMEu3A" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_aoGl4AeyEfClwpgvqMEu3A" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_aoGl4QeyEfClwpgvqMEu3A" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_CKRj8A4nEfCaNIIbo9bhqA" name="/BW6_HR_RecruitmentSystem/LogFilePath" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Snx4MA4nEfCaNIIbo9bhqA" name="/BW6_HR_RecruitmentSystem/PayRollSystemFilePath" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_4Ie5cA4nEfCaNIIbo9bhqA" name="/BW6_HR_RecruitmentSystem/OnRollEmployee_Type" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_yzCpUA4oEfCaNIIbo9bhqA" name="/BW6_HR_RecruitmentSystem/OnContractEmployee_Type" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_aX5msAeyEfClwpgvqMEu3A" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_aX5msQeyEfClwpgvqMEu3A" processName="MainProcesses.ReceiveRecruitOnRollEmployee"/>
+  </sca:component>
+  <sca:component xmi:id="_Q6Qw0A4DEfC8lNI84jFLbQ" name="ComponentReceiveRecruitOnContractEmployee" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_Q6Qw0Q4DEfC8lNI84jFLbQ" processName="MainProcesses.ReceiveRecruitOnContractEmployee"/>
+  </sca:component>
+</sca:composite>

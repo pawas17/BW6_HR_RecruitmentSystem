@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/OnRollEmployee" xmlns:tns="http://www.example.org/OnRollEmployee" elementFormDefault="qualified">
+
+    <element name="Employee_id" type="string"></element>
+
+
+    <element name="Emp_Name" type="string"></element>
+
+    <element name="Salary" type="int"></element>
+
+    <element name="Street" type="string"></element>
+
+    <element name="Lane_No" type="int"></element>
+
+    <element name="City" type="string"></element>
+
+    <element name="Pincode" type="int"></element>
+
+    <element name="Country" type="string"></element>
+
+
+    <complexType name="employee_addressType">
+    	<sequence>
+    		<element ref="tns:Street"></element>
+    		<element ref="tns:Lane_No"></element>
+    		<element ref="tns:City"></element>
+    		<element ref="tns:Pincode"></element>
+    		<element ref="tns:Country"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="employee_address" type="tns:employee_addressType"></element>
+
+    <complexType name="Employee_DetailsType">
+    	<sequence>
+    		<element ref="tns:Employee_id"></element>
+    		<element ref="tns:Emp_Name"></element>
+    		<element ref="tns:Salary"></element>
+    		<element ref="tns:employee_address"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="Employee_Details" type="tns:Employee_DetailsType"></element>
+</schema>
