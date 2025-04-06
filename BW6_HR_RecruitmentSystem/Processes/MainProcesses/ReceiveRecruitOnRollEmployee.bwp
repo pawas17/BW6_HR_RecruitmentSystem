@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpws:process exitOnStandardFault="no"
-    name="bw6_hr_recruitmentsystem.ReceiveRecruitOnRollEmployee"
+    name="MainProcesses.ReceiveRecruitOnRollEmployee"
     suppressJoinFailure="yes"
     targetNamespace="http://xmlns.example.com/20250323121529"
     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
@@ -673,14 +673,14 @@
                             <complexType>
                                 <sequence>
                                     <element maxOccurs="1" minOccurs="1"
-                                    name="Employee_id" type="int"/>
+                                    name="employee_id" type="int"/>
                                     <element maxOccurs="1" minOccurs="0"
-                                    name="Employee_NAME"
+                                    name="employee_name"
                                     nillable="false" type="string"/>
                                     <element maxOccurs="1" minOccurs="0"
                                     name="salary" nillable="false" type="int"/>
                                     <element maxOccurs="1" minOccurs="0"
-                                    name="Employee_Type"
+                                    name="employee_type"
                                     nillable="false" type="string"/>
                                 </sequence>
                             </complexType>
@@ -805,7 +805,7 @@
     </tibex:Types>
     <tibex:ProcessInfo createdBy="ADMIN"
         createdOn="Sun Mar 23 12:15:29 IST 2025" description=""
-        modifiedBy="ADMIN" modifiedOn="Mon Mar 31 22:49:03 IST 2025"
+        modifiedBy="ADMIN" modifiedOn="Sun Apr 06 20:31:17 IST 2025"
         modifiers="public" productVersion="6.2.2 V18 2015-07-14"
         scalable="true" singleton="true" stateless="false" type="IT"/>
     <tibex:ProcessTemplateConfigurations/>
@@ -1794,7 +1794,7 @@
                                     <type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCQueryActivity"/>
                                     <value maxRows="100"
                                     sharedResourceProperty="jdbcProperty"
-                                    sqlStatement="SELECT &#xa;    (select count(*) from employee where employee_id=?) as employee_exists, &#xa;    (select case &#xa;        when max(salary)>? then 'NO' &#xa;        else 'YES' &#xa;     END&#xa;&#x9; from employee WHERE employee_type=?) as exceeds_current_max_salary;"
+                                    sqlStatement="SELECT &#xa;    (select count(*) from employees where employee_id=?) as employee_exists, &#xa;    (select case &#xa;        when max(salary)>? then 'NO' &#xa;        else 'YES' &#xa;     END&#xa;&#x9; from employees WHERE employee_type=?) as exceeds_current_max_salary;"
                                     timeout="10" xsi:type="jdbcPalette:JDBCQueryActivity">
                                     <PreparedParameters
                                     DataType="12"
@@ -1881,16 +1881,16 @@
                                     <type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCQueryActivity"/>
                                     <value maxRows="100"
                                     sharedResourceProperty="jdbcProperty"
-                                    sqlStatement="SELECT *&#xa;  FROM employee where employee_id=?"
+                                    sqlStatement="SELECT *&#xa;  FROM employees where employee_id=?"
                                     timeout="10" xsi:type="jdbcPalette:JDBCQueryActivity">
                                     <PreparedParameters
                                     DataType="12"
                                     DataTypeDisplayValue="VARCHAR" ParameterName="Employee_ID"/>
                                     <columnMetadata
-                                    columnName="Employee_id"
+                                    columnName="employee_id"
                                     dataType="4" typeName="INT"/>
                                     <columnMetadata
-                                    columnName="Employee_NAME"
+                                    columnName="employee_name"
                                     dataType="12"
                                     status="OptionalElement" typeName="VARCHAR"/>
                                     <columnMetadata
@@ -1898,7 +1898,7 @@
                                     dataType="4"
                                     status="OptionalElement" typeName="INT"/>
                                     <columnMetadata
-                                    columnName="Employee_Type"
+                                    columnName="employee_type"
                                     dataType="12"
                                     status="OptionalElement" typeName="VARCHAR"/>
                                     </value>
@@ -1910,7 +1910,7 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/OnRollEmployee&quot; xmlns:tns1=&quot;http://www.example.org/RecruitingCandidate&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;ParseXml&quot;/>&lt;xsl:param name=&quot;CheckEmp&quot;/>&lt;xsl:template name=&quot;RenderXml-input&quot; match=&quot;/&quot;>&lt;tns:Employee_Details>&lt;tns:Employee_id>&lt;xsl:value-of select=&quot;$CheckEmp/Record[1]/Employee_id&quot;/>&lt;/tns:Employee_id>&lt;tns:Emp_Name>&lt;xsl:value-of select=&quot;$CheckEmp/Record[1]/Employee_NAME&quot;/>&lt;/tns:Emp_Name>&lt;tns:Salary>&lt;xsl:value-of select=&quot;$CheckEmp/Record[1]/salary&quot;/>&lt;/tns:Salary>&lt;xsl:for-each select=&quot;$ParseXml/tns1:Candidate-Address&quot;>&lt;tns:employee_address>&lt;tns:Street>&lt;xsl:value-of select=&quot;tns1:Street&quot;/>&lt;/tns:Street>&lt;tns:Lane_No>&lt;xsl:value-of select=&quot;tns1:LaneNo&quot;/>&lt;/tns:Lane_No>&lt;tns:City>&lt;xsl:value-of select=&quot;tns1:City&quot;/>&lt;/tns:City>&lt;tns:Pincode>&lt;xsl:value-of select=&quot;tns1:Pincode&quot;/>&lt;/tns:Pincode>&lt;tns:Country>&lt;xsl:value-of select=&quot;tns1:Country&quot;/>&lt;/tns:Country>&lt;/tns:employee_address>&lt;/xsl:for-each>&lt;/tns:Employee_Details>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/OnRollEmployee&quot; xmlns:tns1=&quot;http://www.example.org/RecruitingCandidate&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;ParseXml&quot;/>&lt;xsl:param name=&quot;CheckEmp&quot;/>&lt;xsl:template name=&quot;RenderXml-input&quot; match=&quot;/&quot;>&lt;tns:Employee_Details>&lt;tns:Employee_id>&lt;xsl:value-of select=&quot;$CheckEmp/Record[1]/employee_id&quot;/>&lt;/tns:Employee_id>&lt;tns:Emp_Name>&lt;xsl:value-of select=&quot;$CheckEmp/Record[1]/employee_name&quot;/>&lt;/tns:Emp_Name>&lt;tns:Salary>&lt;xsl:value-of select=&quot;$CheckEmp/Record[1]/salary&quot;/>&lt;/tns:Salary>&lt;xsl:for-each select=&quot;$ParseXml/tns1:Candidate-Address&quot;>&lt;tns:employee_address>&lt;tns:Street>&lt;xsl:value-of select=&quot;tns1:Street&quot;/>&lt;/tns:Street>&lt;tns:Lane_No>&lt;xsl:value-of select=&quot;tns1:LaneNo&quot;/>&lt;/tns:Lane_No>&lt;tns:City>&lt;xsl:value-of select=&quot;tns1:City&quot;/>&lt;/tns:City>&lt;tns:Pincode>&lt;xsl:value-of select=&quot;tns1:Pincode&quot;/>&lt;/tns:Pincode>&lt;tns:Country>&lt;xsl:value-of select=&quot;tns1:Country&quot;/>&lt;/tns:Country>&lt;/tns:employee_address>&lt;/xsl:for-each>&lt;/tns:Employee_Details>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="RenderXml-input" name="RenderXml"
                     outputVariable="RenderXml"
@@ -1923,7 +1923,7 @@
                     </bpws:sources>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/OnRollEmployee&quot; xmlns:tns1=&quot;http://www.example.org/RecruitingCandidate&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;ParseXml&quot;/>&lt;xsl:param name=&quot;CheckEmp&quot;/>&lt;xsl:template name=&quot;RenderXml-input&quot; match=&quot;/&quot;>&lt;tns:Employee_Details>&lt;tns:Employee_id>&lt;xsl:value-of select=&quot;$CheckEmp/Record[1]/Employee_id&quot;/>&lt;/tns:Employee_id>&lt;tns:Emp_Name>&lt;xsl:value-of select=&quot;$CheckEmp/Record[1]/Employee_NAME&quot;/>&lt;/tns:Emp_Name>&lt;tns:Salary>&lt;xsl:value-of select=&quot;$CheckEmp/Record[1]/salary&quot;/>&lt;/tns:Salary>&lt;xsl:for-each select=&quot;$ParseXml/tns1:Candidate-Address&quot;>&lt;tns:employee_address>&lt;tns:Street>&lt;xsl:value-of select=&quot;tns1:Street&quot;/>&lt;/tns:Street>&lt;tns:Lane_No>&lt;xsl:value-of select=&quot;tns1:LaneNo&quot;/>&lt;/tns:Lane_No>&lt;tns:City>&lt;xsl:value-of select=&quot;tns1:City&quot;/>&lt;/tns:City>&lt;tns:Pincode>&lt;xsl:value-of select=&quot;tns1:Pincode&quot;/>&lt;/tns:Pincode>&lt;tns:Country>&lt;xsl:value-of select=&quot;tns1:Country&quot;/>&lt;/tns:Country>&lt;/tns:employee_address>&lt;/xsl:for-each>&lt;/tns:Employee_Details>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/OnRollEmployee&quot; xmlns:tns1=&quot;http://www.example.org/RecruitingCandidate&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;ParseXml&quot;/>&lt;xsl:param name=&quot;CheckEmp&quot;/>&lt;xsl:template name=&quot;RenderXml-input&quot; match=&quot;/&quot;>&lt;tns:Employee_Details>&lt;tns:Employee_id>&lt;xsl:value-of select=&quot;$CheckEmp/Record[1]/employee_id&quot;/>&lt;/tns:Employee_id>&lt;tns:Emp_Name>&lt;xsl:value-of select=&quot;$CheckEmp/Record[1]/employee_name&quot;/>&lt;/tns:Emp_Name>&lt;tns:Salary>&lt;xsl:value-of select=&quot;$CheckEmp/Record[1]/salary&quot;/>&lt;/tns:Salary>&lt;xsl:for-each select=&quot;$ParseXml/tns1:Candidate-Address&quot;>&lt;tns:employee_address>&lt;tns:Street>&lt;xsl:value-of select=&quot;tns1:Street&quot;/>&lt;/tns:Street>&lt;tns:Lane_No>&lt;xsl:value-of select=&quot;tns1:LaneNo&quot;/>&lt;/tns:Lane_No>&lt;tns:City>&lt;xsl:value-of select=&quot;tns1:City&quot;/>&lt;/tns:City>&lt;tns:Pincode>&lt;xsl:value-of select=&quot;tns1:Pincode&quot;/>&lt;/tns:Pincode>&lt;tns:Country>&lt;xsl:value-of select=&quot;tns1:Country&quot;/>&lt;/tns:Country>&lt;/tns:employee_address>&lt;/xsl:for-each>&lt;/tns:Employee_Details>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity
@@ -1948,7 +1948,7 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/file&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;CheckEmp&quot;/>&lt;xsl:param name=&quot;RenderXml&quot;/>&lt;xsl:param name=&quot;PayRollSystemFilePath&quot;/>&lt;xsl:template name=&quot;WriteToPayRollSys-input&quot; match=&quot;/&quot;>&lt;tns:WriteActivityInputTextClass>&lt;fileName>&lt;xsl:value-of select=&quot;concat($PayRollSystemFilePath,&amp;quot;OnRollEmployee_&amp;quot;,xsd:string($CheckEmp/Record[1]/Employee_id),&amp;quot;.xml&amp;quot;)&quot;/>&lt;/fileName>&lt;textContent>&lt;xsl:value-of select=&quot;$RenderXml&quot;/>&lt;/textContent>&lt;/tns:WriteActivityInputTextClass>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/file&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;CheckEmp&quot;/>&lt;xsl:param name=&quot;RenderXml&quot;/>&lt;xsl:param name=&quot;PayRollSystemFilePath&quot;/>&lt;xsl:template name=&quot;WriteToPayRollSys-input&quot; match=&quot;/&quot;>&lt;tns:WriteActivityInputTextClass>&lt;fileName>&lt;xsl:value-of select=&quot;concat($PayRollSystemFilePath,&amp;quot;OnRollEmployee_&amp;quot;,xsd:string($CheckEmp/Record[1]/employee_id),&amp;quot;.xml&amp;quot;)&quot;/>&lt;/fileName>&lt;textContent>&lt;xsl:value-of select=&quot;$RenderXml&quot;/>&lt;/textContent>&lt;/tns:WriteActivityInputTextClass>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="WriteToPayRollSys-input"
                     name="WriteToPayRollSys"
@@ -1962,7 +1962,7 @@
                     </bpws:sources>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/file&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;CheckEmp&quot;/>&lt;xsl:param name=&quot;RenderXml&quot;/>&lt;xsl:param name=&quot;PayRollSystemFilePath&quot;/>&lt;xsl:template name=&quot;WriteToPayRollSys-input&quot; match=&quot;/&quot;>&lt;tns:WriteActivityInputTextClass>&lt;fileName>&lt;xsl:value-of select=&quot;concat($PayRollSystemFilePath,&amp;quot;OnRollEmployee_&amp;quot;,xsd:string($CheckEmp/Record[1]/Employee_id),&amp;quot;.xml&amp;quot;)&quot;/>&lt;/fileName>&lt;textContent>&lt;xsl:value-of select=&quot;$RenderXml&quot;/>&lt;/textContent>&lt;/tns:WriteActivityInputTextClass>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/file&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;CheckEmp&quot;/>&lt;xsl:param name=&quot;RenderXml&quot;/>&lt;xsl:param name=&quot;PayRollSystemFilePath&quot;/>&lt;xsl:template name=&quot;WriteToPayRollSys-input&quot; match=&quot;/&quot;>&lt;tns:WriteActivityInputTextClass>&lt;fileName>&lt;xsl:value-of select=&quot;concat($PayRollSystemFilePath,&amp;quot;OnRollEmployee_&amp;quot;,xsd:string($CheckEmp/Record[1]/employee_id),&amp;quot;.xml&amp;quot;)&quot;/>&lt;/fileName>&lt;textContent>&lt;xsl:value-of select=&quot;$RenderXml&quot;/>&lt;/textContent>&lt;/tns:WriteActivityInputTextClass>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity activityTypeID="bw.file.write"
@@ -1982,7 +1982,7 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/file&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;CheckEmp&quot;/>&lt;xsl:param name=&quot;LogFilePath&quot;/>&lt;xsl:template name=&quot;WriteLog3-input&quot; match=&quot;/&quot;>&lt;tns:WriteActivityInputTextClass>&lt;fileName>&lt;xsl:value-of select=&quot;$LogFilePath&quot;/>&lt;/fileName>&lt;textContent>&lt;xsl:value-of select=&quot;concat(&amp;quot;Newly hired On Roll employee details are sent to Payroll System(Dot Net System) having Employee ID: &amp;quot;,xsd:string($CheckEmp/Record[1]/Employee_id),&amp;quot; &amp;quot;,string(current-dateTime()))&quot;/>&lt;/textContent>&lt;addLineSeparator>&lt;xsl:value-of select=&quot;true()&quot;/>&lt;/addLineSeparator>&lt;/tns:WriteActivityInputTextClass>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/file&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;CheckEmp&quot;/>&lt;xsl:param name=&quot;LogFilePath&quot;/>&lt;xsl:template name=&quot;WriteLog3-input&quot; match=&quot;/&quot;>&lt;tns:WriteActivityInputTextClass>&lt;fileName>&lt;xsl:value-of select=&quot;$LogFilePath&quot;/>&lt;/fileName>&lt;textContent>&lt;xsl:value-of select=&quot;concat(&amp;quot;Newly hired On Roll employee details are sent to Payroll System(Dot Net System) having Employee ID: &amp;quot;,xsd:string($CheckEmp/Record[1]/employee_id),&amp;quot; &amp;quot;,string(current-dateTime()))&quot;/>&lt;/textContent>&lt;addLineSeparator>&lt;xsl:value-of select=&quot;true()&quot;/>&lt;/addLineSeparator>&lt;/tns:WriteActivityInputTextClass>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="WriteLog3-input" name="WriteLog3"
                     outputVariable="WriteLog3"
@@ -1995,7 +1995,7 @@
                     </bpws:sources>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/file&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;CheckEmp&quot;/>&lt;xsl:param name=&quot;LogFilePath&quot;/>&lt;xsl:template name=&quot;WriteLog3-input&quot; match=&quot;/&quot;>&lt;tns:WriteActivityInputTextClass>&lt;fileName>&lt;xsl:value-of select=&quot;$LogFilePath&quot;/>&lt;/fileName>&lt;textContent>&lt;xsl:value-of select=&quot;concat(&amp;quot;Newly hired On Roll employee details are sent to Payroll System(Dot Net System) having Employee ID: &amp;quot;,xsd:string($CheckEmp/Record[1]/Employee_id),&amp;quot; &amp;quot;,string(current-dateTime()))&quot;/>&lt;/textContent>&lt;addLineSeparator>&lt;xsl:value-of select=&quot;true()&quot;/>&lt;/addLineSeparator>&lt;/tns:WriteActivityInputTextClass>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/file&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;CheckEmp&quot;/>&lt;xsl:param name=&quot;LogFilePath&quot;/>&lt;xsl:template name=&quot;WriteLog3-input&quot; match=&quot;/&quot;>&lt;tns:WriteActivityInputTextClass>&lt;fileName>&lt;xsl:value-of select=&quot;$LogFilePath&quot;/>&lt;/fileName>&lt;textContent>&lt;xsl:value-of select=&quot;concat(&amp;quot;Newly hired On Roll employee details are sent to Payroll System(Dot Net System) having Employee ID: &amp;quot;,xsd:string($CheckEmp/Record[1]/employee_id),&amp;quot; &amp;quot;,string(current-dateTime()))&quot;/>&lt;/textContent>&lt;addLineSeparator>&lt;xsl:value-of select=&quot;true()&quot;/>&lt;/addLineSeparator>&lt;/tns:WriteActivityInputTextClass>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity activityTypeID="bw.file.write"
@@ -2076,7 +2076,7 @@
                                     <type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCUpdateActivity"/>
                                     <value
                                     sharedResourceProperty="jdbcProperty"
-                                    sqlStatement="insert into employee values(&#xd;&#xa;          ?,?,?,?&#xd;&#xa;          )       "
+                                    sqlStatement="insert into employees values(&#xd;&#xa;          ?,?,?,?&#xd;&#xa;          )       "
                                     timeout="10" xsi:type="jdbcPalette:JDBCUpdateActivity">
                                     <PreparedParameters
                                     DataType="12"

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpws:process exitOnStandardFault="no"
-    name="bw6_hr_recruitmentsystem.ReceiveRecruitOnContractEmployee"
+    name="MainProcesses.ReceiveRecruitOnContractEmployee"
     suppressJoinFailure="yes"
     targetNamespace="http://xmlns.example.com/20250331130922"
     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
@@ -1137,7 +1137,7 @@
     </tibex:Types>
     <tibex:ProcessInfo createdBy="ADMIN"
         createdOn="Mon Mar 31 13:09:22 IST 2025" description=""
-        modifiedBy="ADMIN" modifiedOn="Mon Mar 31 23:16:19 IST 2025"
+        modifiedBy="ADMIN" modifiedOn="Sun Apr 06 20:31:17 IST 2025"
         modifiers="public" productVersion="6.2.2 V18 2015-07-14"
         scalable="true" singleton="true" stateless="false" type="IT"/>
     <tibex:ProcessTemplateConfigurations/>

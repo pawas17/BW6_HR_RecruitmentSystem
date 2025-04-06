@@ -14,9 +14,9 @@
   <sca:property xmi:id="_4Ie5cA4nEfCaNIIbo9bhqA" name="/BW6_HR_RecruitmentSystem/OnRollEmployee_Type" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_yzCpUA4oEfCaNIIbo9bhqA" name="/BW6_HR_RecruitmentSystem/OnContractEmployee_Type" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:component xmi:id="_aX5msAeyEfClwpgvqMEu3A" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
-    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_aX5msQeyEfClwpgvqMEu3A" processName="bw6_hr_recruitmentsystem.ReceiveRecruitOnRollEmployee"/>
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_aX5msQeyEfClwpgvqMEu3A" processName="MainProcesses.ReceiveRecruitOnRollEmployee"/>
   </sca:component>
   <sca:component xmi:id="_Q6Qw0A4DEfC8lNI84jFLbQ" name="ComponentReceiveRecruitOnContractEmployee" compositeext:version="1.0.0.qualifier">
-    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_Q6Qw0Q4DEfC8lNI84jFLbQ" processName="bw6_hr_recruitmentsystem.ReceiveRecruitOnContractEmployee"/>
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_Q6Qw0Q4DEfC8lNI84jFLbQ" processName="MainProcesses.ReceiveRecruitOnContractEmployee"/>
   </sca:component>
 </sca:composite>
